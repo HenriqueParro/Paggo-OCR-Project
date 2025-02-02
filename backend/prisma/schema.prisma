@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique // Agora obrigatório e único
+  password  String
+  documents Document[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Document {
+  id              Int           @id @default(autoincrement())
+  userId          Int
+  user            User          @relation(fields: [userId], references: [id])
+  fileName        String        // Nome do arquivo enviado
+  filePath        String        // Caminho onde o arquivo está armazenado
+  status          String        @default("processing") // Status do processamento (processing, completed, error)
+  extractedText   ExtractedText? // Relação com o texto extraído
+  llmInteractions LLMInteraction[] // Relação com as interações do LLM
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model ExtractedText {
+  id         Int      @id @default(autoincrement())
+  documentId Int      @unique
+  document   Document @relation(fields: [documentId], references: [id])
+  text       String   // Texto extraído do documento
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model LLMInteraction {
+  id         Int      @id @default(autoincrement())
+  documentId Int
+  document   Document @relation(fields: [documentId], references: [id])
+  question   String   // Pergunta feita pelo usuário
+  response   String   // Resposta do LLM
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
