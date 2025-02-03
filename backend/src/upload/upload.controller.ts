@@ -15,7 +15,6 @@ import { JwtAuthGuard } from 'src/jwt-auth.guard';
 import { PrismaService } from 'prisma/prisma.service';
 import { UploadService } from './upload.service';
 import { diskStorage } from 'multer';
-import { File as MulterFile } from 'multer';
 import { v4 as uuidv4 } from 'uuid';
 import { extname } from 'path';
 import { Response } from 'express';
@@ -54,7 +53,7 @@ export class UploadController {
     }),
   )
   async uploadImage(
-    @UploadedFile() file: Multer.File,
+    @UploadedFile() file: Express.Multer.File,
     @Request() req,
   ) {
     const userId = req.user.userId; // Recupera o ID do usuário autenticado
@@ -77,7 +76,7 @@ export class UploadController {
   @Get('download/:documentId')
   @UseGuards(JwtAuthGuard)
   async downloadDocument(
-    @Param('documentId') documentId: string,  // Corrigido para string
+    @Param('documentId') documentId: string, 
     @Request() req,
     @Res() res: Response,
   ) {
