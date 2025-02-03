@@ -21,7 +21,11 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types"],
-    "types": ["node", "express"]
+    "types": ["node", "express"],
+        "paths": {
+      "prisma/*": ["prisma/*"]
+    }
+
   },
   "include": ["src/**/*", "types.d.ts"]
 }
