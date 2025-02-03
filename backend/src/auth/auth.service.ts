@@ -10,15 +10,6 @@ export class AuthService {
     private readonly prisma: PrismaService,
   ) {}
 
-  // async validateUser(username: string, password: string): Promise<any> {
-  //   const user = await this.prisma.user.findUnique({ where: { username } });
-  //   if (user && (await bcrypt.compare(password, user.password))) {
-  //     const { password, ...result } = user;
-  //     return result;
-  //   }
-  //   return null;
-  // }
-
 
   async validateUser(username: string, password: string): Promise<any> {
     // Agora estamos buscando pelo `username`
