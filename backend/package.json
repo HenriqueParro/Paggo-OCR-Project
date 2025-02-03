@@ -1,6 +1,5 @@
 {
   "name": "backend",
-  "version": "0.1",
   "description": "Backend do projeto Paggo OCR.",
   "author": "Henrique Parro",
   "private": true,
