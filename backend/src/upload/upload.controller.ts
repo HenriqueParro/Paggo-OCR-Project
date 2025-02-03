@@ -15,6 +15,7 @@ import { JwtAuthGuard } from 'src/jwt-auth.guard';
 import { PrismaService } from 'prisma/prisma.service';
 import { UploadService } from './upload.service';
 import { diskStorage } from 'multer';
+import { File as MulterFile } from 'multer';
 import { v4 as uuidv4 } from 'uuid';
 import { extname } from 'path';
 import { Response } from 'express';
