@@ -21,7 +21,7 @@ export default function Documents() {
       }
 
       try {
-        const response = await axios.get('http://localhost:3000/upload/documents', {
+        const response = await axios.get('https://paggo-ocr-project-production.up.railway.app/upload/documents', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -50,7 +50,7 @@ export default function Documents() {
   const handleDownload = async (documentId) => {
     try {
       const token = localStorage.getItem('access_token');
-      const response = await axios.get(`http://localhost:3000/upload/download/${documentId}`, {
+      const response = await axios.get(`https://paggo-ocr-project-production.up.railway.app/upload/download/${documentId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -72,7 +72,7 @@ export default function Documents() {
   const handleDelete = async (documentId) => {
     try {
       const token = localStorage.getItem('access_token');
-      await axios.delete(`http://localhost:3000/upload/delete/${documentId}`, {
+      await axios.delete(`https://paggo-ocr-project-production.up.railway.app/upload/delete/${documentId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

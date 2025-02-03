@@ -10,7 +10,7 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/auth/login', {
+      const response = await axios.post('https://paggo-ocr-project-production.up.railway.app/auth/login', {
         username,
         password,
       });

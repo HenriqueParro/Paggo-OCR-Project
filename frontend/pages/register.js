@@ -18,7 +18,7 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:3000/auth/register', formData);
+      await axios.post('https://paggo-ocr-project-production.up.railway.app/auth/register', formData);
       setMessage('Registro realizado com sucesso! Redirecionando para o login...');
       
       // Redireciona para a página de login após 2 segundos
