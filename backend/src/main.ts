@@ -6,7 +6,7 @@ async function bootstrap() {
 
     // Habilitar CORS para permitir requisições do frontend
     app.enableCors({
-      origin: 'http://localhost:3001', // Permitir o frontend acessar o backend
+      origin: 'https://paggo-ocr-project-rm3cq6xxo-henriques-projects-48c5e3e9.vercel.app', // Permitir o frontend acessar o backend
       credentials: true,
     });
   
