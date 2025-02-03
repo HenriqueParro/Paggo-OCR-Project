@@ -18,6 +18,7 @@ import { diskStorage } from 'multer';
 import { v4 as uuidv4 } from 'uuid';
 import { extname } from 'path';
 import { Response } from 'express';
+import { Express } from 'express';
 
 
 
@@ -53,7 +54,7 @@ export class UploadController {
     }),
   )
   async uploadImage(
-    @UploadedFile() file: Express.Multer.File,
+    @UploadedFile() file: any,//Express.Multer.File,
     @Request() req,
   ) {
     const userId = req.user.userId; // Recupera o ID do usuário autenticado
