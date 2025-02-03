@@ -53,7 +53,7 @@ export class UploadController {
     }),
   )
   async uploadImage(
-    @UploadedFile() file: Express.Multer.File,
+    @UploadedFile() file: Multer.File,
     @Request() req,
   ) {
     const userId = req.user.userId; // Recupera o ID do usuário autenticado
