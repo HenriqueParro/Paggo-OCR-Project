@@ -22,10 +22,9 @@
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types"],
     "types": ["node", "express"],
-        "paths": {
+    "paths": {
       "prisma/*": ["prisma/*"]
     }
-
   },
-  "include": ["src/**/*", "types.d.ts"]
+  "include": ["src/**/*", "prisma/**/*", "types.d.ts"]
 }
