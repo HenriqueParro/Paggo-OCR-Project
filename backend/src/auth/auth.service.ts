@@ -12,7 +12,7 @@ export class AuthService {
 
 
   async validateUser(username: string, password: string): Promise<any> {
-    // Agora estamos buscando pelo `username`
+   
     const user = await this.prisma.user.findUnique({
       where: {
         username: username,
@@ -40,7 +40,7 @@ export class AuthService {
     const hashedPassword = await bcrypt.hash(data.password, 10);
     return this.prisma.user.create({
       data: { 
-        email: data.email, // Adicionando o campo obrigatório
+        email: data.email, 
         username: data.username, 
         password: hashedPassword 
       },
