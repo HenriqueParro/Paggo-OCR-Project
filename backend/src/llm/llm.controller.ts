@@ -7,7 +7,9 @@ import {
   } from '@nestjs/common';
   import { JwtAuthGuard } from 'src/jwt-auth.guard'; 
   import { LlmService } from './llm.service';
-  import { PrismaService } from 'prisma/prisma.service';
+  //import { PrismaService } from 'prisma/prisma.service';
+  import { PrismaService } from '../prisma/prisma.service';
+
   import { Get, Param } from '@nestjs/common';
 
 
